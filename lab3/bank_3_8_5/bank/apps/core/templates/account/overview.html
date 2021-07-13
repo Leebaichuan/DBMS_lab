@@ -1,0 +1,82 @@
+<!--templates/account/overview.html-->
+<!-- shows an overview for deposit accounts and check accounts -->
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class = "subtitle has-text-centered"> Account Overview</h1>
+
+<!-- list all deposit accounts -->
+<h2 class = "subtitle has-text-centered"> Deposit Account Overview</h2>
+<!-- the button to append a deposit account -->
+  <div class = "buttons">
+    <a href = "{% url 'account:deposit_append' %}" class = "button is-success"><strong> append a deposit account </strong></a> 
+  </div>
+
+<!-- the overview of deposit account -->
+  <div class = "col-md-8 mt-3">    
+    {% for deposit_account in deposit_accounts %}
+      <div class = "card">   
+        <div class = "card-body">
+          <blockquote class = "blockquote mb-0">
+            <!-- show the basic info of each deposit account -->
+            <footer class = "blockquote-footer">
+              {{deposit_account.ID}}
+              <small>Created by&nbsp;
+              {% for user in deposit_account.Users.all %}
+                {{user.ID}} &nbsp; {{user.Name}}, &nbsp;&nbsp;
+              {% endfor %} 
+              in bank {{deposit_account.Subbank}}
+              </small>
+            </footer>
+            <!-- show the options to operate on this deposit account -->
+            <p> <a href = "{% url 'account:deposit_profile' deposit_account.ID %}" >&nbsp; &rarr; View detail </a> </p>
+            <p> <a href = "{% url 'account:deposit_update' deposit_account.ID %}" >&nbsp; &rarr; Update account </a> </p>
+            <form action = "{% url 'account:deposit_delete' deposit_account.ID %}" method = "post">
+              {% csrf_token %}
+              <input type = "submit" value = "delete">
+              {% if error_message %}<p><strong>
+              {{ error_message }}</strong></p>{% endif %}
+            </form>
+          </blockquote>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+<!-- list all deposit accounts -->
+<h2 class = "subtitle has-text-centered"> Check Account Overview</h2>
+<!-- the button to append a check account -->
+  <div class = "buttons">
+    <a href = "{% url 'account:check_append' %}" class = "button is-success"><strong> append a check account </strong></a> 
+  </div>
+<!-- the overview of check account -->
+  <div class = "col-md-8 mt-3">    
+    {% for check_account in check_accounts %}
+      <div class = "card">   
+        <div class = "card-body">
+          <blockquote class = "blockquote mb-0">
+            <!-- show the basic info of each check account -->
+            <footer class = "blockquote-footer">
+              {{check_account.ID}}
+              <small>Created by&nbsp;
+              {% for user in check_account.Users.all %}
+                {{user.ID}} &nbsp; {{user.Name}}, &nbsp;&nbsp;
+              {% endfor %}
+              in bank {{check_account.Subbank}} 
+              </small>
+            </footer>
+            <!-- show the options to operate on this check account -->
+            <p> <a href = "{% url 'account:check_profile' check_account.ID %}" >&nbsp; &rarr; View detail </a> </p>
+            <p> <a href = "{% url 'account:check_update' check_account.ID %}" >&nbsp; &rarr; Update account </a> </p>
+            <form action = "{% url 'account:check_delete' check_account.ID %}" method = "post">
+              {% csrf_token %}
+              <input type = "submit" value = "delete">
+              {% if error_message %}<p><strong>
+              {{ error_message }}</strong></p>{% endif %}
+            </form>
+          </blockquote>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

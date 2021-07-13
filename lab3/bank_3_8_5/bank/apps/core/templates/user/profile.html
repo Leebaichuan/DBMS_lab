@@ -1,0 +1,113 @@
+<!-- templates/user/profile.html -->
+<!-- show the detailed information of a user -->
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- showing the user profile -->
+<h2 class = "card-title">User Basic info</h5>
+
+<div class = "card mb-3">
+    <div class = "card-body">
+        <table cellspacing=1 cellpadding=0 style='width:70%' 
+        id = user info table align="left">
+        
+        <!-- Item and value -->
+        <tr style='height:20px'>
+
+            <td style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style16"> Item
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25">Value</p>
+            </td>
+        </tr>
+
+        <!-- ID -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">User ID:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user.ID }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Name -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">User Name:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user.Name }} </p>
+            </td>
+        </tr>
+        
+
+        <!-- PhoneNum -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">User PhoneNum:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user.PhoneNum }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Address -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">User Address:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user.Address }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Contact Name -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Contact Name:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user.Contact_Name }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Contact PhoneNum -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Contact PhoneNum:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user.Contact_PhoneNum }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Contact Email -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Contact Email:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user.Contact_Email }} </p>
+                
+            </td>
+        </tr>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!--templates/user/overview.html-->
+<!-- shows an overview for users -->
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- list all of the possible users -->
+<h2 class = "subtitle has-text-centered">User Overview</h2>
+  <!-- the button to append a user -->
+  <div class = "buttons">
+    <a href = "{% url 'user:append' %}" class = "button is-success"><strong> append a user </strong></a> 
+  </div>
+
+  <div class = "col-md-8 mt-3">    
+    {% for user in users %}
+      <div class = "card">   
+        <div class = "card-body">
+          <blockquote class = "blockquote mb-0">
+            <!-- show the option of view, update and deleting-->
+            {{user.ID}} {{user.Name}}
+            <p> <a href = "{% url 'user:profile' user.ID %}" >&nbsp; &rarr; View profile </a> </p>
+            <p> <a href = "{% url 'user:update' user.ID %}" >&nbsp; &rarr; Update profile </a> </p>
+
+            <form action = "{% url 'user:delete' user.ID %}" method = "post">
+              {% csrf_token %}
+              <input type = "submit" value = "delete" name = "Delete profile">
+              <!-- {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %} -->
+            </form>
+          </blockquote>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

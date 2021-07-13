@@ -1,0 +1,125 @@
+<!--templates/account/check_profile.html-->
+<!-- shows the detailed information of a check account -->
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- showing the check account -->
+<div class="card mb-3">
+  <div class="card-body">
+    <table cellspacing=1 cellpadding=0 style='width:70%' 
+        id = loan info table align="left">
+        
+        <!-- Item and value -->
+        <tr style='height:20px'>
+
+            <td style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style16"> Item
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25">Value</p>
+            </td>
+        </tr>
+
+        <!-- ID -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Check Account ID:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ check_account.ID }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Subbank -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Subbank:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{check_account.Subbank}} </p>
+            </td>
+        </tr>
+        
+
+        <!-- Money -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Money:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ check_account.Money }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Users -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Users:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text">
+                {% for user in check_account.Users.all %}
+                    {{user.ID}} &nbsp; {{user.Name}}, &nbsp;&nbsp;
+                {% endfor %} 
+                </p>
+            </td>
+        </tr>
+
+        <!-- Created date -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Created date:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ check_account.RegDate|date:"M d, Y"}} </p>
+                
+            </td>
+        </tr>
+        
+        <!-- overdraft -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">OverDraft:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ check_account.OverDraft }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Manager ID-->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text"> Manager ID:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ deposit_account.Manager.ID}} </p>
+            </td>
+        </tr>
+
+        <!-- Manager Name-->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text"> Manager Name:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ deposit_account.Manager.Name}} </p>
+            </td>
+        </tr>
+    </table>
+  </div>
+</div>
+
+{% endblock %}

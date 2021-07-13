@@ -1,0 +1,24 @@
+<!-- templates/account/check_update.html -->
+<!-- update the profile of a check account -->
+<!-- note that the check account ID can't be changed -->
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Update your check account</h4>
+                <!-- note that the deposit check ID can't be changed -->
+                <p class = "card-text">Check Account ID:  {{ check_account.ID }}</p>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <button type="submit" class="btn btn-primary btn-block">Update check account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

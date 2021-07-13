@@ -1,0 +1,32 @@
+<!-- templates/base.html -->
+<!-- basic module showed on top the page -->
+<!doctype html>
+<html>
+
+    <head>
+        <!-- meta -->
+        <meta charset = "utf-8">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1"> 
+        <!-- title -->
+        <title>China Bank</title>
+
+        <!-- styles -->
+        <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+        <link rel = "stylesheet" type = "text/css" href = "style.css">
+
+    </head>
+
+<body>
+    <!-- Navbar -->
+    <nav class = "navbar is-light">
+        <!-- the button of the home title, which can redirect to homepage -->
+        <div class = "navbar-brand">
+             <a href="{% url 'home' %}" class = "navbar-item"><strong>China Bank</strong></a>
+        </div>
+    </nav>
+    <!-- end navbar -->
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

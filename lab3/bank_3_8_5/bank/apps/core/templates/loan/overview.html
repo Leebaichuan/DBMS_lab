@@ -1,0 +1,28 @@
+<!--templates/loan/overview.html-->
+<!-- shows an overview for loans -->
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- list all of the possible users -->
+<h2 class = "subtitle has-text-centered">Loan Overview</h2>
+  <!-- the button to append a user -->
+  <div class = "buttons">
+    <a href = "{% url 'loan:append' %}" class = "button is-success"><strong> append a loan </strong></a> 
+  </div>
+
+  <div class = "col-md-8 mt-3">    
+    {% for loan in loans %}
+      <div class = "card">   
+        <div class = "card-body">
+          <blockquote class = "blockquote mb-0">
+            <!-- show the option of view, update and deleting-->
+            <footer class = "blockquote-footer"><small>Created by&nbsp;
+                {{loan.User.ID}} &nbsp; {{loan.User.Name}} </small></footer>
+            <p> <a href = "{% url 'loan:profile' loan.ID %}" >&nbsp; &rarr; View detail </a> </p>
+          </blockquote>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

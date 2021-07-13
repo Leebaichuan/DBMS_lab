@@ -1,0 +1,149 @@
+<!--templates/loan/profile.html-->
+<!-- shows the detailed information of a loan -->
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- showing the loan profile and its payment record -->
+<div class="card mb-3">
+  <div class="card-body">
+    <table cellspacing=1 cellpadding=0 style='width:70%' 
+        id = loan info table align="left">
+        
+        <!-- Item and value -->
+        <tr style='height:20px'>
+
+            <td style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style16"> Item
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25">Value</div>
+            </td>
+        </tr>
+
+        <!-- ID -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Loan ID:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ loan.ID }} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Money -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Money:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{ loan.Money }} </p>
+            </td>
+        </tr>
+        
+
+        <!-- User ID -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">User ID:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{loan.User.ID}} </p>
+                
+            </td>
+        </tr>
+
+        <!-- User Address -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">User Address:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{loan.User.Name}}  </p>
+                
+            </td>
+        </tr>
+
+        <!-- Created date -->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text">Created date:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{loan.CreatedDate|date:"M d, Y"}} </p>
+                
+            </td>
+        </tr>
+
+        <!-- Manager ID-->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text"> Manager ID:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{loan.Manager.ID}} </p>
+            </td>
+        </tr>
+
+        <!-- Manager Name-->
+        <tr>
+            <td align="center" class="auto-style33">
+                <p class = "card-text"> Manager Name:</p>
+            </td>
+
+            <td class="auto-style43">
+                <p class = "card-text"> {{loan.Manager.Name}} </p>
+            </td>
+        </tr>
+  </div>
+</div>
+
+<!-- showing the option of paying or deleting -->
+<div class = "buttons">
+  <!-- show the delete button for clients to delete this loan -->
+  {% if loan.Money == 0 %}
+    <form action = "{% url 'loan:delete' loan.ID %}" method = "post">
+        {% csrf_token %}
+        <input type = "submit" value = "delete">
+        {% if error_message %}<p><strong>
+          {{ error_message }}</strong></p>{% endif %}
+    </form>
+  <!-- show the pay button for clients to pay this loan -->
+  {% else %}
+    <!-- a form to write the money that the client wants to pay back this time -->
+    <p>Pay back loan</p>
+    <h1>{{ .question_text }}</h1>
+    <form action = "{% url 'loan:pay' loan.ID %}" method = "post">
+        {% csrf_token %}
+        <input type = "number" name = "PayMoney">
+        <input type = "submit" value = "submit">
+        {% if error_message %}
+          <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+    </form>
+  {% endif %}
+</div>
+
+<!-- showing the payment record -->
+<div class = "col-md-8 mt-3">    
+  {% for payment in payments %}
+    <div class = "card">   
+      <div class = "card-body">
+        <blockquote class = "blockquote mb-0">
+          <p> {{loan.User.Name}} paid {{payment.PayMoney}} 
+            on  {{payment.PayDate|date:"M d, Y"}}.</p>
+        </blockquote>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

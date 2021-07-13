@@ -1,0 +1,16 @@
+<!--templates/statitics/overview.html-->
+<!-- overview page for statistics-->
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class = "subtitle has-text-centered">Statistics</h2>
+
+Business
+<p> <a href = "{% url 'statistics:by_loan' %}" class = "item"><strong> By loan </strong></a> </p>
+<p> <a href = "{% url 'statistics:by_account' %}" class = "item"><strong> By account </strong></a> </p>
+
+Time
+<p> <a href = "{% url 'statistics:by_year' %}" class = "item"><strong> By year </strong></a> </p>
+<p> <a href = "{% url 'statistics:by_month' %}" class = "item"><strong> By month </strong></a> </p>
+<p> <a href = "{% url 'statistics:by_season' %}" class = "item"><strong> By season </strong></a> </p>
+{% endblock %}

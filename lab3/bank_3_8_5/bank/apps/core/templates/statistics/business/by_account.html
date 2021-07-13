@@ -1,0 +1,61 @@
+<!-- templates/statistics/business/by_account.html -->
+<!-- show the statistic by account -->
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- showing the statistics of accounts -->
+<div class = "card mb-3">
+    <div class = "card-body">
+        <h2 class = "card-title">Statistics of deposit accounts</h2>
+
+        <table cellspacing=1 cellpadding=0 style='width:70%' 
+        id = loan statistics table align="left">
+        
+        <!-- Item and value -->
+        <tr style='height:20px'>
+
+            <td style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style16"> Subbank Name
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Deposit Account Amount </p>
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Deposit Account Money </p>
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Deposit Account User Number </p>
+            </td>
+        </tr>
+
+        {% for subbank, amount, money, user_num in all_info %}   
+        <tr>
+            <!-- subbank name -->
+            <td align="center" class="auto-style33">
+                <p class = "card-text"> {{ subbank.Name }} </p>
+            </td>
+
+            <!-- deposit account amount -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{ amount }} </p>
+            </td>
+
+            <!-- deposit account money -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{ money }} </p>
+            </td>
+
+            <!-- deposit account user number -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user_num }} </p>
+            </td>
+        </tr>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

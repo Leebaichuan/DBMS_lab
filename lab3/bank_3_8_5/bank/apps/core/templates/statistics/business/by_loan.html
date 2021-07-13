@@ -1,0 +1,60 @@
+<!-- templates/statistics/business/by_loan.html -->
+<!-- show the statistic by loan -->
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- showing the statistics of loans -->
+<div class = "card mb-3">
+    <div class = "card-body">
+        <h2 class = "card-title">Statistics of loans</h2>
+        <table cellspacing=1 cellpadding=0 style='width:70%' 
+        id = loan statistics table align="left">
+        
+        <!-- Item and value -->
+        <tr style='height:20px'>
+
+            <td style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style16"> Subbank Name
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Loan Amount </p>
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Loan Money </p>
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Loan User Number </p>
+            </td>
+        </tr>
+
+        {% for subbank, amount, money, user_num in all_info %}    
+        <tr>
+            <!-- subbank name -->
+            <td align="center" class="auto-style33">
+                <p class = "card-text"> {{ subbank.Name }} </p>
+            </td>
+
+            <!-- loan amount -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{ amount }} </p>
+            </td>
+
+            <!-- loan money -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{ money }} </p>
+            </td>
+
+            <!-- loan user number -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{ user_num }} </p>
+            </td>
+        </tr>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

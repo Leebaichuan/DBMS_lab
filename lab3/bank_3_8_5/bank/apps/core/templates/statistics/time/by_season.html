@@ -1,0 +1,74 @@
+<!-- templates/statistics/time/by_season.html -->
+<!-- show the statistic by season -->
+{% extends 'base.html' %}
+{% block content %}
+
+
+<!-- showing the statistics by months -->
+<div class = "card mb-3">
+    <div class = "card-body">
+        <h2 class = "card-title">Statistics By season</h2>
+
+        <table cellspacing=1 cellpadding=0 style='width:70%' 
+        id = season statistics table align="left">
+        
+        <!-- Item and value -->
+        <tr style='height:20px'>
+            <td style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style16"> Subbank Name
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Season </p>
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Business Amount </p>
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Deposit Money </p>
+            </td>
+
+            <td align="center" style='width:8%; height:20px' class="auto-style1" >
+                <p align="center" class="auto-style25"> Business User Number </p>
+            </td>
+        </tr>
+
+        {% for subbank, each_info in all_info %}
+
+            {% for key, value in each_info.items %}
+            
+            <tr>
+            <!-- subbank name -->
+            <td align="center" class="auto-style33">
+                <p class = "card-text"> {{ subbank.Name }} </p>
+            </td>
+
+            <!-- season -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{ key }} </p>
+            </td>
+
+            <!-- business amount -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{value.amount}} </p>
+            </td>
+
+            <!-- deposit account money -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{value.money}} </p>
+            </td>
+
+            <!-- deposit account user number -->
+            <td class="auto-style43">
+                <p class = "card-text"> {{value.user_num}} </p>
+            </td>
+        </tr>
+
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

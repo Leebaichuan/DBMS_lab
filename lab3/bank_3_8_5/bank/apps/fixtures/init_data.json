@@ -1,0 +1,160 @@
+[
+    {
+	    "model": "subbank.Subbank",
+	    "pk": 1,
+	    "fields": {
+		    "Name": "Beijing Subbank",
+		    "City": "Beijing",
+		    "Asset": 10000.00
+    	}
+    },
+    {
+	    "model": "subbank.Subbank",
+	    "pk": 2,
+	    "fields": {
+		    "Name": "Shanghai Subbank",
+		    "City": "Shanghai",
+		    "Asset": 10000.00
+    	}
+	},
+	{
+	    "model": "subbank.Department",
+	    "pk": 3,
+	    "fields": {
+		    "ID": "00",
+		    "Name": "finance",
+			"Type": "ECO",
+			"Leader_ID": "1000",
+			"Subbank_Name": "Beijing Subbank"
+    	}
+	},
+	{
+	    "model": "subbank.Department",
+	    "pk": 4,
+	    "fields": {
+		    "ID": "01",
+		    "Name": "technology",
+			"Type": "IT",
+			"Leader_ID": "1002",
+			"Subbank_Name": "Beijing Subbank"
+    	}
+	},
+	{
+	    "model": "subbank.Department",
+	    "pk": 5,
+	    "fields": {
+		    "ID": "02",
+		    "Name": "finance",
+			"Type": "ECO",
+			"Leader_ID": "1004",
+			"Subbank_Name": "Shanghai Subbank"
+    	}
+	},
+	{
+	    "model": "subbank.Department",
+	    "pk": 6,
+	    "fields": {
+		    "ID": "03",
+		    "Name": "technology",
+			"Type": "IT",
+			"Leader_ID": "1006",
+			"Subbank_Name": "Shanghai Subbank"
+    	}
+	},
+	{
+	    "model": "subbank.Employee",
+	    "pk": 7,
+	    "fields": {
+		    "ID": "1000",
+		    "Name": "Alice",
+			"PhoneNum": "1234567890",
+			"Address": "Beijing_Chaoyang",
+			"StartDate": "2012-04-21T18:25:43-05:00",
+			"Depart": "00"
+    	}
+	},
+	{
+	    "model": "subbank.Employee",
+	    "pk": 8,
+	    "fields": {
+		    "ID": "1001",
+		    "Name": "Alen",
+			"PhoneNum": "1234567891",
+			"Address": "Beijing_Chaoyang",
+			"StartDate": "2012-04-21T18:25:43-05:00",
+			"Depart": "00"
+    	}
+	},
+	{
+	    "model": "subbank.Employee",
+	    "pk": 9,
+	    "fields": {
+		    "ID": "1002",
+		    "Name": "Bob",
+			"PhoneNum": "1234567892",
+			"Address": "Beijing_Haidian",
+			"StartDate": "2012-04-21T18:25:43-05:00",
+			"Depart": "01"
+    	}
+	},
+	{
+	    "model": "subbank.Employee",
+	    "pk": 10,
+	    "fields": {
+		    "ID": "1003",
+		    "Name": "Bill",
+			"PhoneNum": "1234567893",
+			"Address": "Beijing_Haidian",
+			"StartDate": "2012-04-21T18:25:43-05:00",
+			"Depart": "01"
+    	}
+	},
+	{
+	    "model": "subbank.Employee",
+	    "pk": 11,
+	    "fields": {
+		    "ID": "1004",
+		    "Name": "Eddie",
+			"PhoneNum": "1234567894",
+			"Address": "Shanghai_Pudong",
+			"StartDate": "2012-04-21T18:25:43-05:00",
+			"Depart": "02"
+    	}
+	},
+	{
+	    "model": "subbank.Employee",
+	    "pk": 12,
+	    "fields": {
+		    "ID": "1005",
+		    "Name": "Elden",
+			"PhoneNum": "1234567895",
+			"Address": "Shanghai_Pudong",
+			"StartDate": "2012-04-21T18:25:43-05:00",
+			"Depart": "02"
+    	}
+	},
+	{
+	    "model": "subbank.Employee",
+	    "pk": 13,
+	    "fields": {
+		    "ID": "1006",
+		    "Name": "Haaland",
+			"PhoneNum": "1234567896",
+			"Address": "Shanghai_Songjiang",
+			"StartDate": "2012-04-21T18:25:43-05:00",
+			"Depart": "03"
+    	}
+	},
+	{
+	    "model": "subbank.Employee",
+	    "pk": 14,
+	    "fields": {
+		    "ID": "1007",
+		    "Name": "Messi",
+			"PhoneNum": "1234567897",
+			"Address": "Shanghai_Songjiang",
+			"StartDate": "2012-04-21T18:25:43-05:00",
+			"Depart": "03"
+    	}
+	}
+]

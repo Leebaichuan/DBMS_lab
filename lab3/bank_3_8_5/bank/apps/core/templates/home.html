@@ -1,0 +1,12 @@
+<!--templates/home.html-->
+<!-- home page for the bank application-->
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class = "subtitle has-text-centered">Welcome to China Bank</h2>
+
+<p> <a href = "{% url 'user:overview' %}" class = "item"><strong> User Management </strong></a> </p>
+<p> <a href = "{% url 'loan:overview' %}" class = "item"><strong> Loan Management </strong></a> </p>
+<p> <a href = "{% url 'account:overview' %}" class = "item"><strong> Account Management </strong></a> </p>
+<p> <a href = "{% url 'statistics:overview' %}" class = "item"><strong> Statistics Management </strong></a> </p>
+{% endblock %}
